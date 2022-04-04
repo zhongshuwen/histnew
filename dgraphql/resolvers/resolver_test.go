@@ -21,7 +21,7 @@ import (
 	"testing"
 
 	pbcodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/codec/v1"
-	pbsearcheos "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/search/v1"
+	pbsearchzsw "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/search/v1"
 	"github.com/zhongshuwen/histnew/trxdb"
 	"github.com/streamingfast/dtracing"
 	"github.com/streamingfast/logging"

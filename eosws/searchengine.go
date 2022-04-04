@@ -26,7 +26,7 @@ import (
 
 	"github.com/streamingfast/derr"
 	"github.com/zhongshuwen/histnew/eosws/mdl"
-	pbsearcheos "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/search/v1"
+	pbsearchzsw "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/search/v1"
 	"github.com/streamingfast/dtracing"
 	v1 "github.com/invisible-train-40/eosws-go/mdl/v1"
 	"github.com/streamingfast/logging"

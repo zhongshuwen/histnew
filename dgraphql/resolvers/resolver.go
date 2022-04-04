@@ -31,7 +31,7 @@ import (
 	pbabicodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/abicodec/v1"
 	pbaccounthist "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/accounthist/v1"
 	pbcodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/codec/v1"
-	pbsearcheos "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/search/v1"
+	pbsearchzsw "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/search/v1"
 	pbtokenmeta "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/tokenmeta/v1"
 	"github.com/zhongshuwen/histnew/trxdb"
 	"github.com/zhongshuwen/zswchain-go"

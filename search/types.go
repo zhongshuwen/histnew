@@ -5,7 +5,7 @@ import (
 
 	"github.com/streamingfast/bstream"
 	pbcodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/codec/v1"
-	pbsearcheos "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/search/v1"
+	pbsearchzsw "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/search/v1"
 	pbsearch "github.com/streamingfast/pbgo/dfuse/search/v1"
 	"github.com/golang/protobuf/ptypes"
 )
