@@ -25,16 +25,6 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/zhongshuwen/histnew/codec"
-	"github.com/zhongshuwen/histnew/codec/zswhq"
-	"github.com/zhongshuwen/histnew/dgraphql/types"
-	pbabicodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/abicodec/v1"
-	pbaccounthist "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/accounthist/v1"
-	pbcodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/codec/v1"
-	pbsearchzsw "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/search/v1"
-	pbtokenmeta "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/tokenmeta/v1"
-	"github.com/zhongshuwen/histnew/trxdb"
-	"github.com/zhongshuwen/zswchain-go"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/graph-gophers/graphql-go"
 	rateLimiter "github.com/streamingfast/dauth/ratelimiter"
@@ -47,6 +37,16 @@ import (
 	"github.com/streamingfast/opaque"
 	pbblockmeta "github.com/streamingfast/pbgo/dfuse/blockmeta/v1"
 	pbsearch "github.com/streamingfast/pbgo/dfuse/search/v1"
+	"github.com/zhongshuwen/histnew/codec"
+	"github.com/zhongshuwen/histnew/codec/zswhq"
+	"github.com/zhongshuwen/histnew/dgraphql/types"
+	pbabicodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/abicodec/v1"
+	pbaccounthist "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/accounthist/v1"
+	pbcodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/codec/v1"
+	pbsearchzsw "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/search/v1"
+	pbtokenmeta "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/tokenmeta/v1"
+	"github.com/zhongshuwen/histnew/trxdb"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -910,7 +910,7 @@ func upgradeToProducerAuthoritySchedule(old *pbcodec.ProducerSchedule) *pbcodec.
 
 func (t BlockHeader) findProducerScheduleChangeExtension() (*zsw.ProducerScheduleChangeExtension, error) {
 	for _, e := range t.h.HeaderExtensions {
-		if e.Type == uint32(zsw.EOS_ProducerScheduleChangeExtension) {
+		if e.Type == uint32(zsw.ZSW_ProducerScheduleChangeExtension) {
 			extension := &zsw.ProducerScheduleChangeExtension{}
 			err := zsw.UnmarshalBinary(e.Data, extension)
 			if err != nil {

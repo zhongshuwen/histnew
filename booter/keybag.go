@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/zhongshuwen/zswchain-go"
 	eoscvault "github.com/eoscanada/eosc/vault"
 	"github.com/spf13/viper"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func (b *booter) newKeyBagFromVault(vaultFile string) (*zsw.KeyBag, error) {
@@ -28,5 +28,5 @@ func (b *booter) newKeyBagFromVault(vaultFile string) (*zsw.KeyBag, error) {
 		return nil, err
 	}
 
-	return vault.KeyBag, nil
+	return nil, fmt.Errorf("not supported")
 }

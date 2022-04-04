@@ -15,23 +15,32 @@
 package server
 
 import (
+	crand "crypto/rand"
+
 	"context"
+	"encoding/binary"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"math/rand"
 	"net"
 	"net/http"
 	"os"
 	"strconv"
+	"sync"
+	"sync/atomic"
 	"syscall"
 	"time"
 
-	strackdriverPropagation "contrib.go.opencensus.io/exporter/stackdriver/propagation"
-	"github.com/streamingfast/derr"
-	"github.com/streamingfast/dtracing"
-	"github.com/streamingfast/logging"
+	"github.com/teris-io/shortid"
+
+	stackdriverPropagation "contrib.go.opencensus.io/exporter/stackdriver/propagation"
 	"github.com/francoispqt/gojay"
 	"github.com/gorilla/mux"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/dtracing"
 	"github.com/streamingfast/fluxdb"
+	"github.com/streamingfast/logging"
 	"go.opencensus.io/plugin/ochttp"
 	"go.opencensus.io/trace"
 	"go.uber.org/zap"
@@ -39,6 +48,69 @@ import (
 )
 
 var parallelReadRequestCount = 64
+
+var defaultFormat stackdriverPropagation.HTTPFormat = stackdriverPropagation.HTTPFormat{}
+var shortIDGenerator *shortid.Shortid
+var traceIDGenerator *defaultIDGenerator
+
+type defaultIDGenerator struct {
+	sync.Mutex
+
+	// Please keep these as the first fields
+	// so that these 8 byte fields will be aligned on addresses
+	// divisible by 8, on both 32-bit and 64-bit machines when
+	// performing atomic increments and accesses.
+	// See:
+	// * https://github.com/census-instrumentation/opencensus-go/issues/587
+	// * https://github.com/census-instrumentation/opencensus-go/issues/865
+	// * https://golang.org/pkg/sync/atomic/#pkg-note-BUG
+	nextSpanID uint64
+	spanIDInc  uint64
+
+	traceIDAdd  [2]uint64
+	traceIDRand *rand.Rand
+}
+
+// NewSpanID returns a non-zero span ID from a randomly-chosen sequence.
+func (gen *defaultIDGenerator) NewSpanID() [8]byte {
+	var id uint64
+	for id == 0 {
+		id = atomic.AddUint64(&gen.nextSpanID, gen.spanIDInc)
+	}
+	var sid [8]byte
+	binary.LittleEndian.PutUint64(sid[:], id)
+	return sid
+}
+
+// NewTraceID returns a non-zero trace ID from a randomly-chosen sequence.
+// mu should be held while this function is called.
+func (gen *defaultIDGenerator) NewTraceID() trace.TraceID {
+	var tid [16]byte
+	// Construct the trace ID from two outputs of traceIDRand, with a constant
+	// added to each half for additional entropy.
+	gen.Lock()
+	binary.LittleEndian.PutUint64(tid[0:8], gen.traceIDRand.Uint64()+gen.traceIDAdd[0])
+	binary.LittleEndian.PutUint64(tid[8:16], gen.traceIDRand.Uint64()+gen.traceIDAdd[1])
+	gen.Unlock()
+	return tid
+}
+
+func init() {
+	// A new generator using the default alphabet set
+	shortIDGenerator = shortid.MustNew(1, shortid.DefaultABC, uint64(time.Now().UnixNano()))
+
+	traceIDGenerator = &defaultIDGenerator{}
+	// initialize traceID and spanID generators.
+	var rngSeed int64
+	for _, p := range []interface{}{
+		&rngSeed, &traceIDGenerator.traceIDAdd, &traceIDGenerator.nextSpanID, &traceIDGenerator.spanIDInc,
+	} {
+		binary.Read(crand.Reader, binary.LittleEndian, p)
+	}
+	traceIDGenerator.traceIDRand = rand.New(rand.NewSource(rngSeed))
+	traceIDGenerator.spanIDInc |= 1
+
+}
 
 type EOSServer struct {
 	httpServer *http.Server
@@ -64,7 +136,7 @@ func New(addr string, db *fluxdb.FluxDB) *EOSServer {
 
 	// Core endpoints
 	coreRouter.Use(openCensusMiddleware)
-	coreRouter.Use(loggingMiddleware)
+	coreRouter.Use(LoggingMiddleware)
 	coreRouter.Use(trackingMiddleware)
 
 	coreRouter.Methods("GET").Path("/v0/state/abi").HandlerFunc(srv.getABIHandler)
@@ -130,18 +202,74 @@ func (srv *EOSServer) healthzHandler(w http.ResponseWriter, r *http.Request) {
 func openCensusMiddleware(next http.Handler) http.Handler {
 	return &ochttp.Handler{
 		Handler:     next,
-		Propagation: &strackdriverPropagation.HTTPFormat{},
+		Propagation: &stackdriverPropagation.HTTPFormat{},
 	}
 }
 
-func loggingMiddleware(next http.Handler) http.Handler {
-	return &logging.Handler{
-		Next:        next,
-		Propagation: &strackdriverPropagation.HTTPFormat{},
-		RootLogger:  zlog,
+func LoggingMiddleware(next http.Handler) http.Handler {
+	return NewAddTraceIDAwareLoggerMiddleware(next, zlog, stackdriverPropagation.HTTPFormat{})
+
+}
+
+func NewAddTraceIDAwareLoggerMiddleware(next http.Handler, rootLogger *zap.Logger, propagation stackdriverPropagation.HTTPFormat) *addTraceIDMiddleware {
+	if rootLogger == nil {
+		panic("root logger must not be nil")
+	}
+
+	return &addTraceIDMiddleware{
+		next:        next,
+		rootLogger:  rootLogger,
+		propagation: propagation,
 	}
 }
 
+type addTraceIDMiddleware struct {
+	// Handler is the handler used to handle the incoming request.
+	next http.Handler
+
+	// Propagation defines how traces are propagated. If unspecified,
+	// Stackdriver propagation will be used.
+	propagation stackdriverPropagation.HTTPFormat
+
+	// Actual root logger to instrument with request information
+	rootLogger *zap.Logger
+}
+
+func (h *addTraceIDMiddleware) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	rootLogger := *h.rootLogger
+	spanContext, ok := extractSpanContext(r, h.propagation)
+
+	var logger *zap.Logger
+	if !ok {
+		// Not found in the header, check from the context directly than
+		span := trace.FromContext(r.Context())
+		if span == nil {
+			traceIDField := zap.Stringer("trace_id", traceID(traceIDGenerator.NewTraceID()))
+			logger = rootLogger.With(traceIDField)
+		} else {
+			spanContext := span.SpanContext()
+			traceID := hex.EncodeToString(spanContext.TraceID[:])
+			logger = rootLogger.With(zap.String("trace_id", traceID))
+		}
+	} else {
+		traceID := hex.EncodeToString(spanContext.TraceID[:])
+		logger = rootLogger.With(zap.String("trace_id", traceID))
+	}
+
+	ctx := logging.WithLogger(r.Context(), logger)
+	h.next.ServeHTTP(w, r.WithContext(ctx))
+}
+
+func extractSpanContext(r *http.Request, propagation stackdriverPropagation.HTTPFormat) (trace.SpanContext, bool) {
+
+	return propagation.SpanContextFromRequest(r)
+}
+
+type traceID [16]byte
+
+func (t traceID) String() string {
+	return hex.EncodeToString(t[:])
+}
 func trackingMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		ctx := r.Context()

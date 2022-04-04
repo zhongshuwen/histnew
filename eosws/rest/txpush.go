@@ -29,14 +29,14 @@ import (
 	"github.com/streamingfast/bstream"
 	"github.com/streamingfast/bstream/forkable"
 	"github.com/streamingfast/bstream/hub"
+	"github.com/tidwall/gjson"
 	"github.com/zhongshuwen/histnew/codec"
 	"github.com/zhongshuwen/histnew/eosws"
 	"github.com/zhongshuwen/histnew/eosws/mdl"
 	"github.com/zhongshuwen/histnew/eosws/metrics"
 	pbcodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/zhongshuwen/zswchain-go/zswerr"
-	"github.com/tidwall/gjson"
 	"go.uber.org/zap"
 )
 
@@ -269,7 +269,7 @@ func (t *TxPusher) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			time.Sleep(time.Duration(attempt) * 250 * time.Millisecond)
 			continue
 		}
-		checkHTTPError(err, fmt.Sprintf("cannot push transaction %q to Nodeos API.", trxID), eoserr.ErrUnhandledException, w)
+		checkHTTPError(err, fmt.Sprintf("cannot push transaction %q to Nodeos API.", trxID), zswerr.ErrUnhandledException, w)
 		return
 	}
 
@@ -318,7 +318,7 @@ func (t *TxPusher) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 						w.WriteHeader(apiErr.Code)
 						w.Write(apiErrCnt)
 					} else {
-						checkHTTPError(errors.New("unknown error"), "unknown error", eoserr.ErrUnhandledException, w)
+						checkHTTPError(errors.New("unknown error"), "unknown error", zswerr.ErrUnhandledException, w)
 					}
 					return
 				}
@@ -327,7 +327,7 @@ func (t *TxPusher) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		case <-expiration:
 			metrics.TimedOutPushTrxCount.Inc(normalizedGuarantee)
 			msg := fmt.Sprintf("too long waiting for inclusion of %q into a block (after %d retries)", trxID, resend)
-			checkHTTPError(errors.New(msg), msg, eoserr.ErrTimeoutException, w)
+			checkHTTPError(errors.New(msg), msg, zswerr.ErrTimeoutException, w)
 			return
 
 		case trxTrace := <-trxTraceFoundChan:
@@ -336,18 +336,18 @@ func (t *TxPusher) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			var processed json.RawMessage
 			if os.Getenv("EOSWS_PUSH_V1_OUTPUT") == "true" {
 				v1tr, err := mdl.ToV1TransactionTrace(trxTrace)
-				if checkHTTPError(err, "cannot marshal response", eoserr.ErrUnhandledException, w) {
+				if checkHTTPError(err, "cannot marshal response", zswerr.ErrUnhandledException, w) {
 					return
 				}
 				out, err := json.Marshal(v1tr)
-				if checkHTTPError(err, "cannot marshal response", eoserr.ErrUnhandledException, w) {
+				if checkHTTPError(err, "cannot marshal response", zswerr.ErrUnhandledException, w) {
 					return
 				}
 				processed = out
 			} else {
 				eosTrace := codec.TransactionTraceToEOS(trxTrace)
 				out, err := json.Marshal(eosTrace)
-				if checkHTTPError(err, "cannot marshal response", eoserr.ErrUnhandledException, w) {
+				if checkHTTPError(err, "cannot marshal response", zswerr.ErrUnhandledException, w) {
 					return
 				}
 				processed = out
@@ -361,7 +361,7 @@ func (t *TxPusher) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			}
 
 			out, err := json.Marshal(resp)
-			if checkHTTPError(err, "cannot marshal response", eoserr.ErrUnhandledException, w) {
+			if checkHTTPError(err, "cannot marshal response", zswerr.ErrUnhandledException, w) {
 				return
 			}
 
@@ -406,7 +406,7 @@ func writeDetailedAPIError(err error, msg string, errorCode int, errorName, erro
 
 }
 
-func checkHTTPError(err error, msg string, errorCode eoserr.Error, w http.ResponseWriter, logFields ...zap.Field) bool {
+func checkHTTPError(err error, msg string, errorCode zswerr.Error, w http.ResponseWriter, logFields ...zap.Field) bool {
 	if err != nil {
 		fields := append([]zap.Field{
 			zap.Error(err),

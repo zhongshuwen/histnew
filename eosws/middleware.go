@@ -21,13 +21,14 @@ import (
 	"net/http"
 
 	stackdriverPropagation "contrib.go.opencensus.io/exporter/stackdriver/propagation"
-	"github.com/streamingfast/derr"
-	"github.com/streamingfast/logging"
-	"github.com/zhongshuwen/zswchain-go"
-	"github.com/zhongshuwen/zswchain-go/zswerr"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"github.com/streamingfast/dauth/authenticator"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/logging"
+	"github.com/zhongshuwen/histnew/statedb/server"
+	zsw "github.com/zhongshuwen/zswchain-go"
+	"github.com/zhongshuwen/zswchain-go/zswerr"
 	"go.opencensus.io/plugin/ochttp"
 	"go.opencensus.io/trace"
 	"go.uber.org/zap"
@@ -51,11 +52,7 @@ func OpenCensusMiddleware(next http.Handler) http.Handler {
 }
 
 func LoggingMiddleware(next http.Handler) http.Handler {
-	return &logging.Handler{
-		Next:        next,
-		Propagation: &stackdriverPropagation.HTTPFormat{},
-		RootLogger:  zlog,
-	}
+	return server.LoggingMiddleware(next)
 }
 
 func RESTTrackingMiddleware(next http.Handler) http.Handler {
