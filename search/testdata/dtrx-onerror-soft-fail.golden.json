@@ -1,0 +1,24 @@
+[
+  {
+    "trx_id": "a1",
+    "data": {
+      "account": "zswhq",
+      "action": "onerror",
+      "block_num": 1,
+      "db": {
+        "key": [
+          "producers/zswhq/eoshuobipool"
+        ],
+        "table": [
+          "producers",
+          "producers/zswhq"
+        ]
+      },
+      "input": true,
+      "notif": false,
+      "receiver": "zswhq",
+      "scheduled": false,
+      "trx_idx": 0
+    }
+  }
+]

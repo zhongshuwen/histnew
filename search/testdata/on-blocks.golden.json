@@ -1,0 +1,36 @@
+[
+  {
+    "trx_id": "a1",
+    "data": {
+      "account": "zswhq",
+      "action": "transfer",
+      "block_num": 1,
+      "db": {
+        "key": [
+          "global/zswhq/global",
+          "global2/zswhq/global2",
+          "global3/zswhq/global3",
+          "namebids/zswhq/j",
+          "producers/zswhq/eoshuobipool"
+        ],
+        "table": [
+          "global",
+          "global/zswhq",
+          "global2",
+          "global2/zswhq",
+          "global3",
+          "global3/zswhq",
+          "namebids",
+          "namebids/zswhq",
+          "producers",
+          "producers/zswhq"
+        ]
+      },
+      "input": true,
+      "notif": false,
+      "receiver": "zswhq",
+      "scheduled": false,
+      "trx_idx": 0
+    }
+  }
+]

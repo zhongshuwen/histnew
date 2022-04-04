@@ -1,0 +1,23 @@
+             ___   ____ __  __ ____ ____
+            / _ \ / __// / / // __// __/
+           / // // _/ / /_/ /_\ \ / _/
+          /____//_/   \____//___//___/
+
+Welcome to this node manager pod, common commands:
+ - Show version           dfuseeos --version
+
+Node manager commands (eos-... <tab> to show all):
+ - Check HEAD & LIB info              cleos get info
+ - Check if producing                 eos-isproducing
+ - Check if has peers                 eos-haspeers
+
+ - List all backups                   eos-listbackups
+ - Restore from backup                eos-restore-from-pitreos [<backupName>]
+ - Restore from snapshot              eos-restore-snapshot [<snapshotName>]
+ - Perform a backup                   eos-backup
+
+ - Rewind Nodeos instance to LIB      eos-rewind-to-lib
+ - Reset continuity checker file      eos-reset-continuity-check
+
+ - Stop Nodeos instance               eos-maintenance
+ - Start or restart Nodeos instance   eos-resume

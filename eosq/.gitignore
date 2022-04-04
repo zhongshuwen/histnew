@@ -1,0 +1,45 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+# Build
+/build
+/eosq-build
+/eosq
+/config.json
+/.eslintcache
+
+/rice-box.go
+/app/eosq/rice-box.go
+
+# dependencies
+/node_modules
+
+# Direnv
+.env
+.envrc
+
+# testing
+/coverage
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.idea
+
+# VSCode
+
+project.code-workspace
+package-lock.json
+
+*~
+/graph/w/
+/graph/p/
+/graph/zw/
+/graph/dump.json
+
+/testdata/mainnet-tx

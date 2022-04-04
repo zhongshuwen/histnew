@@ -1,0 +1,38 @@
+{
+  "permissions": [
+    {
+      "owner": "zswhq.msig",
+      "name": "owner",
+      "authority": {
+        "threshold": 1,
+        "accounts": [
+          {
+            "permission": {
+              "actor": "zswhq",
+              "permission": "active"
+            },
+            "weight": 1
+          }
+        ]
+      }
+    },
+    {
+      "parent": "owner",
+      "owner": "zswhq.msig",
+      "name": "active",
+      "authority": {
+        "threshold": 1,
+        "accounts": [
+          {
+            "permission": {
+              "actor": "zswhq",
+              "permission": "active"
+            },
+            "weight": 1
+          }
+        ]
+      }
+    }
+  ],
+  "link_auths": null
+}
