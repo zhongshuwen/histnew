@@ -1,15 +1,11 @@
-ARG VERSION="-"
-ARG COMMIT=""
-ARG EOSIO_TAG="v2.0.6-dm-12.0"
-ARG DEB_PKG="zswhq_2.0.6-dm.12.0-1-ubuntu-18.04_amd64.deb"
-
+ARG ZSW_CHAIN_LISHI_DEB_URL="https://github.com/invisible-train-40/zswchain-lishi/releases/download/2.0.8-prod-1.1.0/zswchain-lishi_2.0.8-dm.12.0_amd64.deb"
 FROM ubuntu:18.04 AS base
-ARG EOSIO_TAG
-ARG DEB_PKG
+ARG ZSW_CHAIN_LISHI_DEB_URL
 RUN apt update && apt-get -y install curl ca-certificates libicu60 libusb-1.0-0 libcurl3-gnutls
 RUN mkdir -p /var/cache/apt/archives/
-RUN curl -sL -o/var/cache/apt/archives/zswhq.deb "https://github.com/dfuse-io/eos/releases/download/${EOSIO_TAG}/${DEB_PKG}"
-RUN dpkg -i /var/cache/apt/archives/zswhq.deb
+RUN echo "dl $ZSW_CHAIN_LISHI_DEB_URL" && curl -sL -o/var/cache/apt/archives/zswchain.deb "$ZSW_CHAIN_LISHI_DEB_URL"
+RUN dpkg -i /var/cache/apt/archives/zswchain.deb
+RUN rm -rf /var/cache/apt/*
 RUN rm -rf /var/cache/apt/*
 
 FROM node:12 AS dlauncher
@@ -43,7 +39,7 @@ RUN cd /work/eosq/app/eosq && go generate
 RUN cd /work/dashboard && go generate
 RUN cd /work/dgraphql && go generate
 RUN go test ./...
-RUN go build -ldflags "-s -w -X main.version=\"${VERSION}\" -X main.commit=\"${COMMIT}\"" -v -o /work/build/dfuseeos ./cmd/dfuseeos
+RUN go build -ldflags "-s -w" -v -o /work/build/dfuseeos ./cmd/dfuseeos
 
 FROM base
 RUN mkdir -p /app/ && curl -Lo /app/grpc_health_probe https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/v0.2.2/grpc_health_probe-linux-amd64 && chmod +x /app/grpc_health_probe
