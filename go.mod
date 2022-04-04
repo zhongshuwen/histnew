@@ -30,6 +30,7 @@ require (
 	github.com/gorilla/mux v1.7.3
 	github.com/gorilla/websocket v1.4.2
 	github.com/graph-gophers/graphql-go v0.0.0-20191115155744-f33e81362277
+	github.com/invisible-train-40/client-go v0.1.2 // indirect
 	github.com/invisible-train-40/eosio-boot v0.1.0
 	github.com/invisible-train-40/eosws-go v0.1.0
 	github.com/klauspost/compress v1.10.2
@@ -51,7 +52,6 @@ require (
 	github.com/streamingfast/blockmeta v0.0.2-0.20210811194956-90dc4202afda
 	github.com/streamingfast/bstream v0.0.2-0.20210901144836-9a626db444c5
 	github.com/streamingfast/cli v0.0.3-0.20210811201236-5c00ec55462d
-	github.com/streamingfast/client-go v0.0.0-20210812010037-2ae1ded7ca05
 	github.com/streamingfast/dauth v0.0.0-20210811181149-e8fd545948cc
 	github.com/streamingfast/dbin v0.0.0-20210809205249-73d5eca35dc5
 	github.com/streamingfast/derr v0.0.0-20210811180100-9138d738bcec
@@ -73,7 +73,7 @@ require (
 	github.com/streamingfast/merger v0.0.3-0.20210811195536-1011c89f0a67
 	github.com/streamingfast/node-manager v0.0.2-0.20210830135731-4b00105a1479
 	github.com/streamingfast/opaque v0.0.0-20210811180740-0c01d37ea308
-	github.com/streamingfast/pbgo v0.0.6-0.20210820205306-ba5335146052
+	github.com/streamingfast/pbgo v0.0.6-0.20211209212750-753f0acb6553
 	github.com/streamingfast/relayer v0.0.2-0.20210812020310-adcf15941b23
 	github.com/streamingfast/search v0.0.2-0.20210811200310-ec8d3b03e104
 	github.com/streamingfast/search-client v0.0.0-20210811200417-677bdb765983

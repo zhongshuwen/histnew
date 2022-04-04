@@ -489,6 +489,8 @@ github.com/improbable-eng/grpc-web v0.12.0 h1:GlCS+lMZzIkfouf7CNqY+qqpowdKuJLSLL
 github.com/improbable-eng/grpc-web v0.12.0/go.mod h1:6hRR09jOEG81ADP5wCQju1z71g6OL4eEvELdran/3cs=
 github.com/inconshreveable/mousetrap v1.0.0 h1:Z8tu5sraLXCXIcARxBp/8cbvlwVa7Z1NHg9XEKhtSvM=
 github.com/inconshreveable/mousetrap v1.0.0/go.mod h1:PxqpIevigyE2G7u3NXJIT2ANytuPF1OarO4DADm73n8=
+github.com/invisible-train-40/client-go v0.1.2 h1:/MfwzUabwhfOZeXkZn82E/eJj/bbII6LDVbaJfyrPTk=
+github.com/invisible-train-40/client-go v0.1.2/go.mod h1:dos1t1VHGDKr+QjMT5oLQLRLI89zAJ5JD2FU4UJ0tq4=
 github.com/invisible-train-40/eosio-boot v0.1.0 h1:ggZ4JfGjSPZLFdRZ3CCQttONIpJQSyurA+VuvBM+yVM=
 github.com/invisible-train-40/eosio-boot v0.1.0/go.mod h1:KnWuX26DD/e9izrtQK+XlHx16VXn77utzlzKR18OpRc=
 github.com/invisible-train-40/eosws-go v0.1.0 h1:qToxsBXN83pvMQOltCxtjMEZqvO8GKYeCU801FNpSiE=
@@ -833,6 +835,7 @@ github.com/streamingfast/jsonpb v0.0.0-20210811021341-3670f0aa02d0/go.mod h1:cTN
 github.com/streamingfast/kvdb v0.0.2-0.20210811194032-09bf862bd2e3 h1:v1ux5D8Xm30wpFpbS6u6fKuZUx/5/UTzYlR4llYaxSM=
 github.com/streamingfast/kvdb v0.0.2-0.20210811194032-09bf862bd2e3/go.mod h1:4dQjd/1ZHhyfAWaFN8cwtdPGZU5LLmAQ7zK2HE5Ok40=
 github.com/streamingfast/logging v0.0.0-20210811175431-f3b44b61606a/go.mod h1:4GdqELhZOXj4xwc4IaBmzofzdErGynnaSzuzxy0ZIBo=
+github.com/streamingfast/logging v0.0.0-20220214194203-5c70c134fea8/go.mod h1:4GdqELhZOXj4xwc4IaBmzofzdErGynnaSzuzxy0ZIBo=
 github.com/streamingfast/logging v0.0.0-20220304214715-bc750a74b424 h1:qKt1W13L7GXL3xqvD6z2ufSkIy/KDm9oGrfurypC78E=
 github.com/streamingfast/logging v0.0.0-20220304214715-bc750a74b424/go.mod h1:VlduQ80JcGJSargkRU4Sg9Xo63wZD/l8A5NC/Uo1/uU=
 github.com/streamingfast/merger v0.0.3-0.20210811195536-1011c89f0a67 h1:Hj4QnGLfBvyj5Lx0xxQ96WT0Ztv/N9ub38fdAOljUK8=
@@ -845,6 +848,8 @@ github.com/streamingfast/pbgo v0.0.6-0.20210811160400-7c146c2db8cc/go.mod h1:mSi
 github.com/streamingfast/pbgo v0.0.6-0.20210812023556-e996f9c4fb86/go.mod h1:XKLPtwRtO9JRVfcymM8IIHiJTVIERR+O8uBbdOol3l0=
 github.com/streamingfast/pbgo v0.0.6-0.20210820205306-ba5335146052 h1:kjlGNfF3yky5772l7etF3c7k1sbYlYApJHwF6e/r3UA=
 github.com/streamingfast/pbgo v0.0.6-0.20210820205306-ba5335146052/go.mod h1:fobYEIfCKwPOY+VLX7HXBVuhrn+iZrzujKrpCgfG3+Q=
+github.com/streamingfast/pbgo v0.0.6-0.20211209212750-753f0acb6553 h1:617aWSg7BDGWqoiiZZ8vcSs/fcu4AsiEUIkBkqJ7+rc=
+github.com/streamingfast/pbgo v0.0.6-0.20211209212750-753f0acb6553/go.mod h1:fobYEIfCKwPOY+VLX7HXBVuhrn+iZrzujKrpCgfG3+Q=
 github.com/streamingfast/relayer v0.0.2-0.20210812020310-adcf15941b23 h1:kJz7rG5TDGUc/MpYgcVLFdbl7XL4KslD73l8zZ+aVLk=
 github.com/streamingfast/relayer v0.0.2-0.20210812020310-adcf15941b23/go.mod h1:ybqMjC0jMhfHvcUaB035Z8sNVLjwcu3KGUrVguG7zB4=
 github.com/streamingfast/search v0.0.2-0.20210811200310-ec8d3b03e104 h1:aToe3vfghl9j2c8uMQfK1SZzSSdtajCAPnMJokae5Lc=
