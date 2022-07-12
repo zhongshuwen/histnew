@@ -32,7 +32,7 @@ import (
 	"github.com/blevesearch/bleve/index"
 	"github.com/blevesearch/bleve/index/scorch"
 	zswhqSearch "github.com/zhongshuwen/histnew/search"
-	pb "github.com/streamingfast/pbgo/dfuse/search/v1"
+	pb "github.com/streamingfast/pbgo/sf/search/v1"
 	"github.com/streamingfast/dmesh"
 	"github.com/streamingfast/search"
 	searchArchive "github.com/streamingfast/search/archive"

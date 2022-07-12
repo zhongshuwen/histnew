@@ -27,7 +27,7 @@ import (
 	"github.com/zhongshuwen/histnew/trxdb"
 	"github.com/zhongshuwen/histnew/trxdb-loader/metrics"
 	"github.com/streamingfast/dstore"
-	pbblockmeta "github.com/streamingfast/pbgo/dfuse/blockmeta/v1"
+	pbblockmeta "github.com/streamingfast/pbgo/sf/blockmeta/v1"
 	"github.com/streamingfast/shutter"
 	eosgo "github.com/zhongshuwen/zswchain-go"
 	"github.com/streamingfast/kvdb"

@@ -24,7 +24,7 @@ import (
 	_ "github.com/zhongshuwen/histnew/codec"
 	pbcodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/codec/v1"
 	eosSearch "github.com/zhongshuwen/histnew/search"
-	pb "github.com/streamingfast/pbgo/dfuse/search/v1"
+	pb "github.com/streamingfast/pbgo/sf/search/v1"
 	"github.com/streamingfast/search"
 	searchLive "github.com/streamingfast/search/live"
 	"github.com/stretchr/testify/assert"

@@ -33,7 +33,7 @@ import (
 	"github.com/zhongshuwen/histnew/tokenmeta/cache"
 	"github.com/streamingfast/dgrpc"
 	"github.com/streamingfast/dstore"
-	pbblockmeta "github.com/streamingfast/pbgo/dfuse/blockmeta/v1"
+	pbblockmeta "github.com/streamingfast/pbgo/sf/blockmeta/v1"
 	pbhealth "github.com/streamingfast/pbgo/grpc/health/v1"
 	"github.com/streamingfast/shutter"
 	"go.uber.org/zap"

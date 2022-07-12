@@ -21,8 +21,8 @@ import (
 
 	pbcodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/codec/v1"
 	"github.com/streamingfast/logging"
-	pbblockmeta "github.com/streamingfast/pbgo/dfuse/blockmeta/v1"
-	pbgraphql "github.com/streamingfast/pbgo/dfuse/graphql/v1"
+	pbblockmeta "github.com/streamingfast/pbgo/sf/blockmeta/v1"
+	pbgraphql "github.com/streamingfast/pbgo/sf/graphql/v1"
 	"github.com/golang/protobuf/proto"
 	"github.com/streamingfast/dgraphql"
 	"github.com/streamingfast/dgraphql/analytics"

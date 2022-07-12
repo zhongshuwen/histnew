@@ -18,7 +18,7 @@ require (
 	github.com/daaku/go.zipexe v1.0.1 // indirect
 	github.com/davecgh/go-spew v1.1.1
 	github.com/dustin/go-humanize v1.0.0
-	github.com/eoscanada/eos-go v0.9.1-0.20210812015252-984fc96878b6
+	github.com/eoscanada/eos-go v0.9.1-0.20210812015252-984fc96878b6 // indirect
 	github.com/eoscanada/eosc v1.4.0
 	github.com/eoscanada/pitreos v1.1.1-0.20210811185752-fa06394508d0
 	github.com/francoispqt/gojay v1.2.13
@@ -30,7 +30,7 @@ require (
 	github.com/gorilla/mux v1.7.3
 	github.com/gorilla/websocket v1.4.2
 	github.com/graph-gophers/graphql-go v0.0.0-20191115155744-f33e81362277
-	github.com/invisible-train-40/client-go v0.1.2 // indirect
+	github.com/invisible-train-40/client-go v0.1.2
 	github.com/invisible-train-40/eosio-boot v0.1.0
 	github.com/invisible-train-40/eosws-go v0.1.0
 	github.com/klauspost/compress v1.10.2
@@ -70,7 +70,7 @@ require (
 	github.com/streamingfast/merger v0.0.3-0.20210820210545-ca8b1a40ae2a
 	github.com/streamingfast/node-manager v0.0.2-0.20210830135731-4b00105a1479
 	github.com/streamingfast/opaque v0.0.0-20210811180740-0c01d37ea308
-	github.com/streamingfast/pbgo v0.0.0-0.20211209212750-753f0acb6553
+	github.com/streamingfast/pbgo v0.0.6-0.20211209212750-753f0acb6553
 	github.com/streamingfast/relayer v0.0.2-0.20210812020310-adcf15941b23
 	github.com/streamingfast/search v0.0.2-0.20210811200310-ec8d3b03e104
 	github.com/streamingfast/search-client v0.0.0-20210811200417-677bdb765983
@@ -90,7 +90,6 @@ require (
 	golang.org/x/oauth2 v0.0.0-20210805134026-6f1e6394065a
 	golang.org/x/time v0.0.0-20191024005414-555d28b269f0
 	google.golang.org/grpc v1.39.1
-	google.golang.org/grpc/examples v0.0.0-20210526223527-2de42fcbbce3 // indirect
 	google.golang.org/protobuf v1.27.1
 	gopkg.in/olivere/elastic.v3 v3.0.75
 	gopkg.in/yaml.v2 v2.4.0
@@ -113,4 +112,5 @@ replace github.com/ShinyTrinkets/overseer => github.com/dfuse-io/overseer v0.2.1
 
 // replace github.com/streamingfast/firehose => github.com/EOS-Nation/firehose v0.1.1-0.20211125122622-4d3db7b50f2c
 replace github.com/dfuse-io/dfuse-eosio => github.com/zhongshuwen/histnew v0.2.2
-replace github.com/streamingfast/pbgo => github.com/historyz/pbgo v0.0.6
+
+replace github.com/streamingfast/pbgo => github.com/historyz/pbgo v0.0.7

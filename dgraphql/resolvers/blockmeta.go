@@ -21,7 +21,7 @@ import (
 
 	"github.com/streamingfast/derr"
 	"github.com/streamingfast/logging"
-	pbblockmeta "github.com/streamingfast/pbgo/dfuse/blockmeta/v1"
+	pbblockmeta "github.com/streamingfast/pbgo/sf/blockmeta/v1"
 	"github.com/zhongshuwen/zswchain-go"
 	"github.com/golang/protobuf/ptypes"
 	graphql "github.com/graph-gophers/graphql-go"

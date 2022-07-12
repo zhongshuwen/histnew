@@ -23,7 +23,7 @@ import (
 	"github.com/streamingfast/bstream"
 	_ "github.com/zhongshuwen/histnew/codec"
 	pbcodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/codec/v1"
-	pbbstream "github.com/streamingfast/pbgo/dfuse/bstream/v1"
+	pbbstream "github.com/streamingfast/pbgo/sf/bstream/v1"
 	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes"

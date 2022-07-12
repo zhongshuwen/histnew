@@ -21,7 +21,7 @@ import (
 	"github.com/araddon/dateparse"
 	"github.com/streamingfast/derr"
 	"github.com/zhongshuwen/histnew/eosws"
-	pbblockmeta "github.com/streamingfast/pbgo/dfuse/blockmeta/v1"
+	pbblockmeta "github.com/streamingfast/pbgo/sf/blockmeta/v1"
 	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/streamingfast/dmetering"
 )

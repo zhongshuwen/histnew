@@ -25,7 +25,7 @@ import (
 	"github.com/streamingfast/derr"
 	"github.com/zhongshuwen/histnew/eosws"
 	"github.com/zhongshuwen/histnew/eosws/mdl"
-	pbblockmeta "github.com/streamingfast/pbgo/dfuse/blockmeta/v1"
+	pbblockmeta "github.com/streamingfast/pbgo/sf/blockmeta/v1"
 	"github.com/zhongshuwen/zswchain-go"
 	"github.com/streamingfast/dmetering"
 )

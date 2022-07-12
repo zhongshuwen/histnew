@@ -24,7 +24,7 @@ import (
 	"github.com/streamingfast/bstream"
 	"github.com/streamingfast/dgrpc"
 	"github.com/streamingfast/dstore"
-	pbbstream "github.com/streamingfast/pbgo/dfuse/bstream/v1"
+	pbbstream "github.com/streamingfast/pbgo/sf/bstream/v1"
 	"github.com/zhongshuwen/histnew/abicodec"
 	pbcodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/codec/v1"
 	zsw "github.com/zhongshuwen/zswchain-go"
