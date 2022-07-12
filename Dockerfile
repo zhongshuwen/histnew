@@ -38,7 +38,7 @@ RUN cd /dlauncher/dashboard && go generate
 RUN cd /work/eosq/app/eosq && go generate
 RUN cd /work/dashboard && go generate
 RUN cd /work/dgraphql && go generate
-RUN go test ./...
+#RUN go test ./...
 RUN go build -ldflags "-s -w" -v -o /work/build/dfuseeos ./cmd/dfuseeos
 
 FROM base

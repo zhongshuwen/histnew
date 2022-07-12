@@ -113,4 +113,4 @@ replace github.com/ShinyTrinkets/overseer => github.com/dfuse-io/overseer v0.2.1
 // replace github.com/streamingfast/firehose => github.com/EOS-Nation/firehose v0.1.1-0.20211125122622-4d3db7b50f2c
 replace github.com/dfuse-io/dfuse-eosio => github.com/zhongshuwen/histnew v0.2.2
 
-replace github.com/streamingfast/pbgo => github.com/historyz/pbgo v0.0.7
+replace github.com/streamingfast/pbgo => github.com/historyz/pbgo v0.0.8
