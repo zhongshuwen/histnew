@@ -70,7 +70,7 @@ require (
 	github.com/streamingfast/merger v0.0.3-0.20210820210545-ca8b1a40ae2a
 	github.com/streamingfast/node-manager v0.0.2-0.20210830135731-4b00105a1479
 	github.com/streamingfast/opaque v0.0.0-20210811180740-0c01d37ea308
-	github.com/streamingfast/pbgo v0.0.6-0.20211209212750-753f0acb6553
+	github.com/streamingfast/pbgo v0.0.0-0.20211209212750-753f0acb6553
 	github.com/streamingfast/relayer v0.0.2-0.20210812020310-adcf15941b23
 	github.com/streamingfast/search v0.0.2-0.20210811200310-ec8d3b03e104
 	github.com/streamingfast/search-client v0.0.0-20210811200417-677bdb765983
@@ -113,3 +113,4 @@ replace github.com/ShinyTrinkets/overseer => github.com/dfuse-io/overseer v0.2.1
 
 // replace github.com/streamingfast/firehose => github.com/EOS-Nation/firehose v0.1.1-0.20211125122622-4d3db7b50f2c
 replace github.com/dfuse-io/dfuse-eosio => github.com/zhongshuwen/histnew v0.2.2
+replace github.com/streamingfast/pbgo => github.com/historyz/pbgo v0.0.6
