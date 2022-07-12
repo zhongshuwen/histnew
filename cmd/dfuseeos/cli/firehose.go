@@ -10,7 +10,7 @@ import (
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"github.com/streamingfast/bstream"
-	blockstreamv2 "github.com/streamingfast/bstream/blockstream"
+	blockstreamv2 "github.com/streamingfast/bstream/blockstream/v2"
 	dauthAuthenticator "github.com/streamingfast/dauth/authenticator"
 	"github.com/streamingfast/dlauncher/launcher"
 	"github.com/streamingfast/dmetering"
