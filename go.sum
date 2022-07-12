@@ -331,7 +331,6 @@ github.com/desertbit/timer v0.0.0-20180107155436-c41aec40b27f/go.mod h1:xH/i4TFM
 github.com/dfuse-io/derr v0.0.0-20200406214256-c690655246a1/go.mod h1:JW/hUKChGd6ytDtvwx4JFo57m1pnFvMxaq9WbDAb2fQ=
 github.com/dfuse-io/derr v0.0.0-20200417132224-d333cfd0e9a0 h1:saup3uh3r5kk12Kbr+ba4fSFiiajkAWShjcPY+ZWN7E=
 github.com/dfuse-io/derr v0.0.0-20200417132224-d333cfd0e9a0/go.mod h1:/DjjRCyTi/KIiI1E1hnhvfWwg+K06jo+qM4VcjHvHq4=
-github.com/dfuse-io/dfuse-eosio v0.9.0-beta9.0.20210812023750-17e5f52111ab/go.mod h1:DFdnabuEM63joo6lOM6jfKJevb71UfBj5U2MBjMu+a4=
 github.com/dfuse-io/dgrpc v0.0.0-20200406214416-6271093e544c h1:ebrUj1rR2g1ErpCMjQUmTON3T3MNi22wf/vYJ/zSkXI=
 github.com/dfuse-io/dgrpc v0.0.0-20200406214416-6271093e544c/go.mod h1:n7pQV0mGBMBgJChGKp5gfRLkP2jSCkT+to7fPxKvQPA=
 github.com/dfuse-io/dtracing v0.0.0-20200406213603-4b0c0063b125 h1:XvwJj/xDY0TQV1y1MvMBINLK/4RGrhuc2HmHscnRgdM=

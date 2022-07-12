@@ -3,10 +3,10 @@ FROM ubuntu:18.04 AS base
 ARG ZSW_CHAIN_LISHI_DEB_URL
 RUN apt update && apt-get -y install curl ca-certificates libicu60 libusb-1.0-0 libcurl3-gnutls
 RUN mkdir -p /var/cache/apt/archives/
-RUN echo "dl $ZSW_CHAIN_LISHI_DEB_URL" && curl -sL -o/var/cache/apt/archives/zswchain.deb "$ZSW_CHAIN_LISHI_DEB_URL"
-RUN dpkg -i /var/cache/apt/archives/zswchain.deb
-RUN rm -rf /var/cache/apt/*
-RUN rm -rf /var/cache/apt/*
+#RUN echo "dl $ZSW_CHAIN_LISHI_DEB_URL" && curl -sL -o/var/cache/apt/archives/zswchain.deb "$ZSW_CHAIN_LISHI_DEB_URL"
+#RUN dpkg -i /var/cache/apt/archives/zswchain.deb
+#RUN rm -rf /var/cache/apt/*
+#RUN rm -rf /var/cache/apt/*
 
 FROM node:12 AS dlauncher
 WORKDIR /work
@@ -24,7 +24,7 @@ ADD eosq /work
 WORKDIR /work
 RUN yarn install && yarn build
 
-FROM golang:1.14 as dfuse
+FROM golang:1.16 as dfuse
 ARG COMMIT
 ARG VERSION
 RUN go get -u github.com/GeertJohan/go.rice/rice && export PATH=$PATH:$HOME/bin:/work/go/bin
