@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 
-	pbheadinfo "github.com/streamingfast/pbgo/sf/headinfo/v1"
+	pbheadinfo "github.com/streamingfast/pbgo/dfuse/headinfo/v1"
 	"github.com/zhongshuwen/zswchain-go"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/streamingfast/blockmeta"

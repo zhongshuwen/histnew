@@ -10,7 +10,7 @@ import (
 	searchclient "github.com/zhongshuwen/histnew/search-client"
 	"github.com/streamingfast/dgrpc"
 	"github.com/streamingfast/logging"
-	pbsearch "github.com/streamingfast/pbgo/sf/search/v1"
+	pbsearch "github.com/streamingfast/pbgo/dfuse/search/v1"
 	"go.uber.org/zap"
 )
 

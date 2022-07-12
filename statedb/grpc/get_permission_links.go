@@ -8,7 +8,7 @@ import (
 	pbstatedb "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/statedb/v1"
 	"github.com/zhongshuwen/histnew/statedb"
 	"github.com/streamingfast/logging"
-	pbbstream "github.com/streamingfast/pbgo/sf/bstream/v1"
+	pbbstream "github.com/streamingfast/pbgo/dfuse/bstream/v1"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 )

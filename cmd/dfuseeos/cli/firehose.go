@@ -17,7 +17,7 @@ import (
 	"github.com/streamingfast/dmetrics"
 	firehoseApp "github.com/streamingfast/firehose/app/firehose"
 	"github.com/streamingfast/logging"
-	pbbstream "github.com/streamingfast/pbgo/sf/bstream/v1"
+	pbbstream "github.com/streamingfast/pbgo/dfuse/bstream/v1"
 	"go.uber.org/zap"
 )
 

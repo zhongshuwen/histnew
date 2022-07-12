@@ -25,7 +25,7 @@ import (
 	"github.com/zhongshuwen/histnew/statedb/metrics"
 	"github.com/zhongshuwen/histnew/statedb/server"
 	"github.com/streamingfast/dmetrics"
-	pbblockmeta "github.com/streamingfast/pbgo/sf/blockmeta/v1"
+	pbblockmeta "github.com/streamingfast/pbgo/dfuse/blockmeta/v1"
 	"github.com/streamingfast/fluxdb"
 	appFluxdb "github.com/streamingfast/fluxdb/app/fluxdb"
 	"go.uber.org/zap"

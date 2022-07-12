@@ -28,7 +28,7 @@ import (
 	searchclient "github.com/zhongshuwen/histnew/search-client"
 	"github.com/zhongshuwen/histnew/trxdb"
 	"github.com/streamingfast/dgrpc"
-	pbsearch "github.com/streamingfast/pbgo/sf/search/v1"
+	pbsearch "github.com/streamingfast/pbgo/dfuse/search/v1"
 	"github.com/streamingfast/shutter"
 	"github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"

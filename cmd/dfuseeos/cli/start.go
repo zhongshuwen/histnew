@@ -23,7 +23,7 @@ import (
 	"github.com/zhongshuwen/histnew/filtering"
 	"github.com/streamingfast/dgrpc"
 	"github.com/streamingfast/dstore"
-	pbblockmeta "github.com/streamingfast/pbgo/sf/blockmeta/v1"
+	pbblockmeta "github.com/streamingfast/pbgo/dfuse/blockmeta/v1"
 
 	"github.com/streamingfast/bstream"
 	"github.com/streamingfast/derr"

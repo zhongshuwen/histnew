@@ -10,7 +10,7 @@ import (
 	"github.com/zhongshuwen/histnew/trxdb"
 	"github.com/streamingfast/dhammer"
 	"github.com/streamingfast/logging"
-	pbsearch "github.com/streamingfast/pbgo/sf/search/v1"
+	pbsearch "github.com/streamingfast/pbgo/dfuse/search/v1"
 	"github.com/golang/protobuf/ptypes"
 	searchclient "github.com/streamingfast/search-client"
 	"go.uber.org/zap"

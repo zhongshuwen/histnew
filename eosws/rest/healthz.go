@@ -31,7 +31,7 @@ import (
 	pbstatedb "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/statedb/v1"
 	"github.com/streamingfast/dstore"
 	"github.com/streamingfast/logging"
-	pbsearch "github.com/streamingfast/pbgo/sf/search/v1"
+	pbsearch "github.com/streamingfast/pbgo/dfuse/search/v1"
 	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )

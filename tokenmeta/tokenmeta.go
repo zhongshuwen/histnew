@@ -11,7 +11,7 @@ import (
 	pbcodec "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/codec/v1"
 	pbtokenmeta "github.com/zhongshuwen/histnew/pb/dfuse/zswhq/tokenmeta/v1"
 	"github.com/zhongshuwen/histnew/tokenmeta/cache"
-	pbblockmeta "github.com/streamingfast/pbgo/sf/blockmeta/v1"
+	pbblockmeta "github.com/streamingfast/pbgo/dfuse/blockmeta/v1"
 	"github.com/streamingfast/shutter"
 	"github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
