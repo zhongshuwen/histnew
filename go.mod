@@ -3,7 +3,7 @@ module github.com/zhongshuwen/histnew
 go 1.16
 
 require (
-	contrib.go.opencensus.io/exporter/stackdriver v0.13.8
+	contrib.go.opencensus.io/exporter/stackdriver v0.13.10
 	github.com/GeertJohan/go.rice v1.0.2
 	github.com/ShinyTrinkets/overseer v0.3.0
 	github.com/acarl005/stripansi v0.0.0-20180116102854-5a71ef0e047d
@@ -27,7 +27,7 @@ require (
 	github.com/golang/protobuf v1.5.2
 	github.com/google/cel-go v0.4.1
 	github.com/gorilla/handlers v1.4.2
-	github.com/gorilla/mux v1.7.3
+	github.com/gorilla/mux v1.8.0
 	github.com/gorilla/websocket v1.4.2
 	github.com/graph-gophers/graphql-go v0.0.0-20191115155744-f33e81362277
 	github.com/invisible-train-40/client-go v0.1.2
@@ -47,21 +47,21 @@ require (
 	github.com/spf13/cobra v1.1.3
 	github.com/spf13/viper v1.7.0
 	github.com/streamingfast/blockmeta v0.0.2-0.20210811194956-90dc4202afda
-	github.com/streamingfast/bstream v0.0.2-0.20210901144836-9a626db444c5
+	github.com/streamingfast/bstream v0.0.2-0.20220622120622-82cc2635749d
 	github.com/streamingfast/cli v0.0.3-0.20210811201236-5c00ec55462d
-	github.com/streamingfast/dauth v0.0.0-20210811181149-e8fd545948cc
+	github.com/streamingfast/dauth v0.0.0-20210812020920-1c83ba29add1
 	github.com/streamingfast/dbin v0.0.0-20210809205249-73d5eca35dc5
-	github.com/streamingfast/derr v0.0.0-20210811180100-9138d738bcec
-	github.com/streamingfast/dgraphql v0.0.2-0.20210908222456-ff1f58e7afcc
-	github.com/streamingfast/dgrpc v0.0.0-20210901144702-c57c3701768b
+	github.com/streamingfast/derr v0.0.0-20220301163149-de09cb18fc70
+	github.com/streamingfast/dgraphql v0.0.2-0.20220307143518-466192441cfe
+	github.com/streamingfast/dgrpc v0.0.0-20220301153539-536adf71b594
 	github.com/streamingfast/dhammer v0.0.0-20210811180702-456c4cf0a840
 	github.com/streamingfast/dipp v1.0.1-0.20210811200841-d2cca4e058e6
 	github.com/streamingfast/dlauncher v0.0.0-20210811194929-f06e488e63da
 	github.com/streamingfast/dmesh v0.0.0-20210811181323-5a37ad73216b
-	github.com/streamingfast/dmetering v0.0.0-20210812002943-aa53fa1ce172
+	github.com/streamingfast/dmetering v0.0.0-20220301165106-a642bb6a21bd
 	github.com/streamingfast/dmetrics v0.0.0-20210811180524-8494aeb34447
 	github.com/streamingfast/dstore v0.1.1-0.20210811180812-4db13e99cc22
-	github.com/streamingfast/dtracing v0.0.0-20210811175635-d55665d3622a
+	github.com/streamingfast/dtracing v0.0.0-20220305214756-b5c0e8699839
 	github.com/streamingfast/firehose v0.1.1-0.20211202153816-44577bee52dd
 	github.com/streamingfast/fluxdb v0.0.0-20210811195408-0515ef659298
 	github.com/streamingfast/jsonpb v0.0.0-20210811021341-3670f0aa02d0
@@ -70,9 +70,9 @@ require (
 	github.com/streamingfast/merger v0.0.3-0.20210820210545-ca8b1a40ae2a
 	github.com/streamingfast/node-manager v0.0.2-0.20210830135731-4b00105a1479
 	github.com/streamingfast/opaque v0.0.0-20210811180740-0c01d37ea308
-	github.com/streamingfast/pbgo v0.0.6-0.20211209212750-753f0acb6553
+	github.com/streamingfast/pbgo v0.0.6-0.20220228185940-1bbaafec7d8a
 	github.com/streamingfast/relayer v0.0.2-0.20210812020310-adcf15941b23
-	github.com/streamingfast/search v0.0.2-0.20210811200310-ec8d3b03e104
+	github.com/streamingfast/search v0.0.2-0.20220307144412-f4c2c6fabd9b
 	github.com/streamingfast/search-client v0.0.0-20210811200417-677bdb765983
 	github.com/streamingfast/shutter v1.5.0
 	github.com/streamingfast/validator v0.0.0-20210812013448-b9da5752ce14
@@ -87,9 +87,9 @@ require (
 	go.uber.org/atomic v1.9.0
 	go.uber.org/zap v1.21.0
 	golang.org/x/crypto v0.0.0-20220315160706-3147a52a75dd
-	golang.org/x/oauth2 v0.0.0-20210805134026-6f1e6394065a
+	golang.org/x/oauth2 v0.0.0-20211005180243-6b3c2da341f1
 	golang.org/x/time v0.0.0-20191024005414-555d28b269f0
-	google.golang.org/grpc v1.39.1
+	google.golang.org/grpc v1.44.0
 	google.golang.org/protobuf v1.27.1
 	gopkg.in/olivere/elastic.v3 v3.0.75
 	gopkg.in/yaml.v2 v2.4.0
@@ -114,3 +114,4 @@ replace github.com/ShinyTrinkets/overseer => github.com/dfuse-io/overseer v0.2.1
 replace github.com/dfuse-io/dfuse-eosio => github.com/zhongshuwen/histnew v0.2.9
 
 replace github.com/streamingfast/pbgo => github.com/historyz/pbgo v0.1.0
+replace github.com/streamingfast/bstream => github.com/streamingfast/bstream v0.0.2-0.20220622120622-82cc2635749d
