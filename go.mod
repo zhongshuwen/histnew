@@ -47,7 +47,7 @@ require (
 	github.com/spf13/cobra v1.1.3
 	github.com/spf13/viper v1.7.0
 	github.com/streamingfast/blockmeta v0.0.2-0.20210811194956-90dc4202afda
-	github.com/streamingfast/bstream v0.0.2-0.20211006133726-b4a4315e6708
+	github.com/streamingfast/bstream v0.0.2-0.20210901144836-9a626db444c5
 	github.com/streamingfast/cli v0.0.3-0.20210811201236-5c00ec55462d
 	github.com/streamingfast/dauth v0.0.0-20210812020920-1c83ba29add1
 	github.com/streamingfast/dbin v0.0.0-20210809205249-73d5eca35dc5
@@ -57,10 +57,10 @@ require (
 	github.com/streamingfast/dhammer v0.0.0-20210811180702-456c4cf0a840
 	github.com/streamingfast/dipp v1.0.1-0.20210811200841-d2cca4e058e6
 	github.com/streamingfast/dlauncher v0.0.0-20210811194929-f06e488e63da
-	github.com/streamingfast/dmesh v0.0.0-20210811181323-5a37ad73216b
+	github.com/streamingfast/dmesh v0.0.0-20220301163726-9fdd154b47a3
 	github.com/streamingfast/dmetering v0.0.0-20220301165106-a642bb6a21bd
 	github.com/streamingfast/dmetrics v0.0.0-20210811180524-8494aeb34447
-	github.com/streamingfast/dstore v0.1.1-0.20210811180812-4db13e99cc22
+	github.com/streamingfast/dstore v0.1.1-0.20220203133825-30eb2f9c5cd3
 	github.com/streamingfast/dtracing v0.0.0-20220305214756-b5c0e8699839
 	github.com/streamingfast/firehose v0.1.1-0.20211202153816-44577bee52dd
 	github.com/streamingfast/fluxdb v0.0.0-20210811195408-0515ef659298
@@ -72,7 +72,7 @@ require (
 	github.com/streamingfast/opaque v0.0.0-20210811180740-0c01d37ea308
 	github.com/streamingfast/pbgo v0.0.6-0.20220228185940-1bbaafec7d8a
 	github.com/streamingfast/relayer v0.0.2-0.20210812020310-adcf15941b23
-	github.com/streamingfast/search v0.0.2-0.20220307144412-f4c2c6fabd9b
+	github.com/streamingfast/search v0.0.2-0.20210811200310-ec8d3b03e104
 	github.com/streamingfast/search-client v0.0.0-20210811200417-677bdb765983
 	github.com/streamingfast/shutter v1.5.0
 	github.com/streamingfast/validator v0.0.0-20210812013448-b9da5752ce14
@@ -114,4 +114,5 @@ replace github.com/ShinyTrinkets/overseer => github.com/dfuse-io/overseer v0.2.1
 replace github.com/dfuse-io/dfuse-eosio => github.com/zhongshuwen/histnew v0.2.14
 
 replace github.com/streamingfast/pbgo => github.com/historyz/pbgo v0.1.0
-replace github.com/streamingfast/bstream => github.com/streamingfast/bstream v0.0.2-0.20211006133726-b4a4315e6708
+
+replace github.com/streamingfast/search => github.com/historyz/search v0.0.2
