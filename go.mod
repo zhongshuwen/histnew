@@ -47,7 +47,7 @@ require (
 	github.com/spf13/cobra v1.1.3
 	github.com/spf13/viper v1.7.0
 	github.com/streamingfast/blockmeta v0.0.2-0.20210811194956-90dc4202afda
-	github.com/streamingfast/bstream v0.0.2-0.20220622120622-82cc2635749d
+	github.com/streamingfast/bstream v0.0.2-0.20211006133726-b4a4315e6708
 	github.com/streamingfast/cli v0.0.3-0.20210811201236-5c00ec55462d
 	github.com/streamingfast/dauth v0.0.0-20210812020920-1c83ba29add1
 	github.com/streamingfast/dbin v0.0.0-20210809205249-73d5eca35dc5
@@ -114,4 +114,4 @@ replace github.com/ShinyTrinkets/overseer => github.com/dfuse-io/overseer v0.2.1
 replace github.com/dfuse-io/dfuse-eosio => github.com/zhongshuwen/histnew v0.2.12
 
 replace github.com/streamingfast/pbgo => github.com/historyz/pbgo v0.1.0
-replace github.com/streamingfast/bstream => github.com/streamingfast/bstream v0.0.2-0.20220622120622-82cc2635749d
+replace github.com/streamingfast/bstream => github.com/streamingfast/bstream v0.0.2-0.20211006133726-b4a4315e6708
